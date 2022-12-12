@@ -14,9 +14,6 @@ namespace TestGMap
 {
     public partial class Form1 : Form
     {
-        //google api key
-        private readonly string API_KEY = "";
-
         // temp auto save & load path
         private readonly string _filePath = Path.Combine(Application.StartupPath, "Temp.txt");
         // data
@@ -118,8 +115,15 @@ namespace TestGMap
 
             GMaps.Instance.Mode = AccessMode.ServerAndCache;
             gMapControl1.CacheLocation = Application.StartupPath + "data.gmdp";
-            GMapProviders.GoogleMap.ApiKey = API_KEY;
-            gMapControl1.MapProvider = GMapProviders.GoogleMap;
+            //GMapProviders.GoogleMap.ApiKey = API_KEY;
+            //gMapControl1.MapProvider = GMapProviders.GoogleMap;
+
+            //gMapControl1.MapProvider = GoogleMapProvider.Instance;
+            //gMapControl1.MapProvider = GoogleHybridMapProvider.Instance;
+            //gMapControl1.MapProvider = BingMapProvider.Instance;
+            //gMapControl1.MapProvider = BingHybridMapProvider.Instance;
+            gMapControl1.MapProvider = OpenStreetMapProvider.Instance;
+
             gMapControl1.DragButton = MouseButtons.Left;
 
             gMapControl1.MaxZoom = 20;
